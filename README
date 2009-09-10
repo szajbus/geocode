@@ -1,0 +1,27 @@
+Geocode
+=======
+
+A simple interface to Google Maps' geocoding API.
+
+
+Example
+=======
+
+# config/initializers/geocode_config.rb
+Geocode.logger = Rails.logger # logger (optional)
+Geocode.gmaps_key = "test_gmaps_key" # your google maps api key
+Geocode.country = "USA" # default country that is appended to query (leave nil for world-wide search)
+Geocode.unknown_state = "unknown" # default return value of Geocode.state method if something goes wrong
+Geocode::Request.headers = { "Accept-Language" => "pl", "Accept-Charset" => "utf-8;q=0.7,*;q=0.7", "User-Agent" => "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; pl; rv:1.9.0.10) Gecko/2009042315 Firefox/3.0.10" } # default request headers
+
+# anywhere in your app
+Geocode.coords("5th Avenue, New York")
+# => {:accuracy=>"6", :lat=>"40.7744050", :lng=>"-73.9656050", :response=>"200,6,40.7744050,-73.9656050", :http_status=>"200"}
+Geocode.state("New York")
+# => "NY"
+
+
+Copyright
+=========
+
+Copyright (c) 2009 Michał Szajbe, released under the MIT license
