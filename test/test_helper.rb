@@ -1,11 +1,10 @@
 require 'rubygems'
-require 'active_support'
-require 'active_support/test_case'
-
-require 'shoulda'
-
 gem 'jferris-mocha', '0.9.5.0.1241126838'
 require 'mocha'
+require 'active_support'
+require 'active_support/test_case'
+require 'shoulda'
+require 'geocode'
 
 Geocode.gmaps_key = "test_gmaps_key"
 Geocode.country = "Polska"

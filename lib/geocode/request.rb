@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'cgi'
+
 module Geocode
   class Request
     

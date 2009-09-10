@@ -23,6 +23,7 @@ class GeocodeTest < ActiveSupport::TestCase
       Geocode.stubs(:append_country).returns("Warszawa, Woronicza 1, Polska")
       request = Geocode::Request.new(:query => "Warszawa, Woronicza 1, Polska")
       Geocode::Request.stubs(:new).returns(request)
+      Geocode::Request.stubs(:execute!).returns(nil)
       Geocode.coords("Warszawa, Woronicza 1")
     end
 
@@ -40,6 +41,7 @@ class GeocodeTest < ActiveSupport::TestCase
       Geocode.stubs(:append_country).returns("Warszawa, Polska")
       request = Geocode::Request.new(:query => "Warszawa, Polska")
       Geocode::Request.stubs(:new).returns(request)
+      Geocode::Request.stubs(:execute!).returns(nil)
       Geocode.state("Warszawa")
     end
 
